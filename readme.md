@@ -1,5 +1,9 @@
 # Synebo Frontend Challenge
 
+## Preview
+
+[🔗 Live Preview](https://nyx.is-a.dev/synebo-todo)
+
 ## Features
 
 - [x] View the optimal layout for the app depending on their device's screen size
