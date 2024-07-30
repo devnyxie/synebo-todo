@@ -75,7 +75,12 @@ const TodoItem: React.FC<TodoItemProps> = ({
       />
       {onDelete && (
         <button onClick={() => onDelete(id)} className="ml-2">
-          <Image src="/icon-cross.svg" alt="Delete" width="15" height="15" />
+          <Image
+            src="/todo/icon-cross.svg"
+            alt="Delete"
+            width="15"
+            height="15"
+          />
         </button>
       )}
       {id !== 0 && (

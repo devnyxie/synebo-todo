@@ -98,7 +98,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 pt-20">
+    <div className="container mx-auto max-w-3xl px-4 pt-20">
       <h1 className="text-4xl font-bold text-white">TODO</h1>
       {/* add tasks input */}
       <div className="mt-4 mb-4 rounded-md overflow-hidden">
