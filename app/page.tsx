@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import banner from "@/public/bg-desktop-light.jpeg";
 import TodoItem from "./ToDoItem";
 import { useState, useMemo } from "react";
 import {

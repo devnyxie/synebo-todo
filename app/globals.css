@@ -31,7 +31,7 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  background-image: url("/todo/bg-mobile-light.jpg");
+  background-image: url("/synebo-todo/bg-mobile-light.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
   display: flex;
@@ -42,7 +42,7 @@ main {
 /* mobile background */
 @media (min-width: 768px) {
   main {
-    background-image: url("/todo/bg-desktop-light.jpg");
+    background-image: url("/synebo-todo/bg-desktop-light.jpg");
   }
 }
 
