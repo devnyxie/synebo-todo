@@ -19,6 +19,7 @@ import {
   restrictToVerticalAxis,
   restrictToParentElement,
 } from "@dnd-kit/modifiers";
+import ThemeChanger from "./themeChanger";
 
 interface ToDoItem {
   id: number;
@@ -95,9 +96,36 @@ export default function Home() {
     setTodos((prevTodos) => prevTodos.filter((todo) => !todo.done));
   }
 
+  const sortingButtons = (
+    <>
+      <button
+        onClick={() => setFilter("all")}
+        className={filter === "all" ? "selected-sorting" : "sorting-btn"}
+      >
+        All
+      </button>
+      <button
+        onClick={() => setFilter("active")}
+        className={filter === "active" ? "selected-sorting" : "sorting-btn"}
+      >
+        Active
+      </button>
+      <button
+        onClick={() => setFilter("completed")}
+        className={filter === "completed" ? "selected-sorting" : "sorting-btn"}
+      >
+        Completed
+      </button>
+    </>
+  );
   return (
     <div className="container mx-auto max-w-3xl px-4 pt-20">
-      <h1 className="text-4xl font-bold text-white">TODO</h1>
+      <div className="flex w-full justify-between items-center">
+        <h1 className="text-4xl font-bold text-white">TODO</h1>
+        <div>
+          <ThemeChanger />
+        </div>
+      </div>
       {/* add tasks input */}
       <div className="mt-4 mb-4 rounded-md overflow-hidden">
         <TodoItem id={0} text="" onAdd={addNewTodo} />
@@ -135,49 +163,15 @@ export default function Home() {
 
         <div className="p-4  w-full justify-between text-sm sm:text-base hidden sm:flex">
           <p>{itemsLeft} items left</p>
-          <div className="flex space-x-2 font-bold">
-            <button
-              onClick={() => setFilter("all")}
-              className={filter === "all" ? "selected-sorting" : ""}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setFilter("active")}
-              className={filter === "active" ? "selected-sorting" : ""}
-            >
-              Active
-            </button>
-            <button
-              onClick={() => setFilter("completed")}
-              className={filter === "completed" ? "selected-sorting" : ""}
-            >
-              Completed
-            </button>
-          </div>
-          <button onClick={clearCompleted}>Clear Completed</button>
+          <div className="flex space-x-2 font-bold">{sortingButtons}</div>
+          <button onClick={clearCompleted} className="sorting-btn">
+            Clear Completed
+          </button>
         </div>
       </div>
       {/* All/Active/Completed detached sorting button at mobile */}
-      <div className="bg shadow-lg rounded-md flex justify-center space-x-4 p-2 mt-4 sm:hidden">
-        <button
-          onClick={() => setFilter("all")}
-          className={filter === "all" ? "selected-sorting" : ""}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setFilter("active")}
-          className={filter === "active" ? "selected-sorting" : ""}
-        >
-          Active
-        </button>
-        <button
-          onClick={() => setFilter("completed")}
-          className={filter === "completed" ? "selected-sorting" : ""}
-        >
-          Completed
-        </button>
+      <div className="bg shadow-lg rounded-md flex justify-center space-x-4 p-2 mt-4 sm:hidden text-base font-bold">
+        {sortingButtons}
       </div>
 
       {/* drag and drop hint */}

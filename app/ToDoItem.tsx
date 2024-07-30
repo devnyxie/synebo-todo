@@ -57,7 +57,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
     <div
       ref={setNodeRef}
       style={style}
-      className="todo-item w-full bg flex p-4 items-center"
+      className="todo-item w-full bg flex p-4 items-center hover:bg-gray-100 dark:hover:bg-neutral-800"
     >
       <CustomCheckbox checked={isChecked} onChange={toggle} />
       <input

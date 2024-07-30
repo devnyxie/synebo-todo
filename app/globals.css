@@ -13,9 +13,16 @@
 :root {
   --background: white;
   --foreground: #333333;
+  --foreground-light: hsl(236, 9%, 61%);
+  --foreground-dark: hsl(235, 19%, 35%);
 }
 
 [data-theme="dark"] {
+  --background: #181818;
+  --foreground: #e0e0e0;
+}
+
+.dark {
   --background: #181818;
   --foreground: #e0e0e0;
 }
@@ -62,4 +69,12 @@ input:focus {
 /* all/active/completed active btn color */
 .selected-sorting {
   color: #3a7bfd;
+}
+
+/* color classes */
+.sorting-btn {
+  color: var(--foreground-light);
+}
+.sorting-btn:hover {
+  color: var(--foreground-dark);
 }
