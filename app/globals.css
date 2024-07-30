@@ -25,6 +25,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-size: 18px;
+  font-weight: 400;
 }
 
 main {
@@ -38,6 +39,7 @@ main {
   align-items: center;
 }
 
+/* mobile background */
 @media (min-width: 768px) {
   main {
     background-image: url("/bg-desktop-light.jpg");
@@ -55,4 +57,9 @@ input {
 }
 input:focus {
   outline: none !important;
+}
+
+/* all/active/completed active btn color */
+.selected-sorting {
+  color: #3a7bfd;
 }

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import Image from "next/image";
+import CustomCheckbox from "./CustomCheckbox";
 
 interface TodoItemProps {
   id: number;
@@ -9,6 +11,7 @@ interface TodoItemProps {
   done?: boolean;
   onDelete?: (id: number) => void;
   onAdd?: (text: string, checked: boolean) => void;
+  onToggle?: () => void;
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({
@@ -17,6 +20,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
   done,
   onDelete,
   onAdd,
+  onToggle,
 }) => {
   const [isChecked, setIsChecked] = useState(done ?? false);
   const [inputText, setInputText] = useState(text);
@@ -42,33 +46,36 @@ const TodoItem: React.FC<TodoItemProps> = ({
 
   const isCursorGrabbing = attributes["aria-pressed"];
 
+  const toggle: () => void = () => {
+    if (onToggle) {
+      onToggle();
+    }
+    setIsChecked(!isChecked);
+  };
+
   return (
     <div
       ref={setNodeRef}
       style={style}
       className="todo-item w-full bg flex p-4 items-center"
     >
-      <label className="custom-radio mr-2">
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={() => setIsChecked(!isChecked)}
-        />
-        <span className="checkmark"></span>
-      </label>
+      <CustomCheckbox checked={isChecked} onChange={toggle} />
       <input
         type="text"
         value={inputText}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
+        placeholder="Create a new todo..."
         style={{
           textDecoration: isChecked ? "line-through" : "none",
         }}
-        className="w-full"
+        className={`w-full ${
+          isChecked ? "text-gray-400 dark:text-gray-700" : ""
+        }`}
       />
       {onDelete && (
         <button onClick={() => onDelete(id)} className="ml-2">
-          ×
+          <Image src="/icon-cross.svg" alt="Delete" width="15" height="15" />
         </button>
       )}
       {id !== 0 && (
