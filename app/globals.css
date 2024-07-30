@@ -30,7 +30,6 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background-image: url("/bg-mobile-light.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
