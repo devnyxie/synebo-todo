@@ -161,7 +161,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className="p-4  w-full justify-between text-sm sm:text-base hidden sm:flex">
+        <div className="bg p-4 w-full justify-between text-sm sm:text-base hidden sm:flex z-20 relative">
           <p>{itemsLeft} items left</p>
           <div className="flex space-x-2 font-bold">{sortingButtons}</div>
           <button onClick={clearCompleted} className="sorting-btn">

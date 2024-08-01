@@ -24,3 +24,26 @@
 - CI/CD: GitHub Actions
 - Other:
   - Drag&Drop: dnd-kit
+
+## Development
+
+To run the project locally, follow these steps:
+
+1. **Clone the Repository**
+
+```bash
+ git clone https://github.com/your-username/synebo-todo.git
+ cd synebo-todo
+```
+
+2. **Install Dependencies**
+
+```bash
+yarn
+```
+
+3. **Start the Dev Server**
+
+```bash
+yarn dev
+```

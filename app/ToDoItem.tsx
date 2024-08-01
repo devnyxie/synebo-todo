@@ -25,8 +25,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
   const [isChecked, setIsChecked] = useState(done ?? false);
   const [inputText, setInputText] = useState(text);
 
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -57,7 +63,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
     <div
       ref={setNodeRef}
       style={style}
-      className="todo-item w-full bg flex p-4 items-center hover:bg-gray-100 dark:hover:bg-neutral-800"
+      className={`todo-item w-full bg flex p-4 items-center hover:bg-gray-100 dark:hover:bg-neutral-800 ${
+        isDragging ? "z-10" : "z-auto"
+      } ${isDragging ? "relative" : "static"}`}
     >
       <CustomCheckbox checked={isChecked} onChange={toggle} />
       <input
